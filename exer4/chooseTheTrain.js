@@ -32,18 +32,21 @@ const railArray = await getRealTimeRailCoordinates();
  * -->
  * ["name", "age", "breed", "friendly"]
  *
- *
  * DO NOT MODIFY railArray! You'll need it for later
  */
 function getKeysToArr(arrivals) {
-  // TODO
+  const keys = [];
+  for (const key in arrivals[0]) {
+    keys.push(key);
+  }
+  return keys;
 }
 
 /**
- * Task 2: We want to know which train is coming in 1 mintue!
+ * Task 2: We want to know which train is coming in 1 minute!
  *
  * Create a function that takes railArray as an argument
- * and return an array of arrivals that is coming in 1 minute
+ * and return an array of arrivals that are coming in 1 minute
  *
  * Please use forEach for this task!
  *
@@ -52,16 +55,22 @@ function getKeysToArr(arrivals) {
  * DO NOT MODIFY railArray! You'll need it for later
  */
 function getTrainComingIn1Minute(arrivals) {
-  // TODO
+  const trainsComingIn1Minute = [];
+  arrivals.forEach((arrival) => {
+    if (arrival.WAITING_TIME === '1 min') {
+      trainsComingIn1Minute.push(arrival);
+    }
+  });
+  return trainsComingIn1Minute;
 }
 
 /**
  * Task 3: Marta wants to change all Blue Rail Lines to be Pink Rail Lines
  *
  * Create a function that takes railArray as an argument, filter all elements
- * in railArray that involves Blue Line, DEEP copy the filtered array into a
- * new array (meaning all elements in filtered array are deep copied), map the
- * Line in the copy array to be Pink, and return the resulting array
+ * in railArray that involve Blue Line, DEEP copy the filtered array into a
+ * new array (meaning all elements in the filtered array are deep copied), map the
+ * Line in the copied array to be Pink, and return the resulting array
  *
  * Example:
  * {
@@ -84,7 +93,9 @@ function getTrainComingIn1Minute(arrivals) {
  *
  */
 function updateLineColor(arrivals) {
-  // TODO
+  const filteredBlueLines = arrivals.filter((arrival) => arrival.LINE === 'BLUE');
+  const updatedLines = filteredBlueLines.map((arrival) => ({ ...arrival, LINE: 'PINK' }));
+  return [...arrivals.filter((arrival) => arrival.LINE !== 'BLUE'), ...updatedLines];
 }
 
 console.log(getKeysToArr(railArray));
