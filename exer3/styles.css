@@ -8,19 +8,19 @@ body {
 .top-bar {
     background-color: rgb(208, 208, 208);
     display: flex;
-    justify-content: space-between; /* Add this line */
+    justify-content: space-between; 
     align-items: center;
     padding: 10px;
 }
 
 .left-content img {
-    max-height: 60px; /* Set height explicitly */
-    width: auto; /* Maintain aspect ratio */
+    max-height: 60px;
+    width: auto;
 }
 
 .right-content {
     display: flex;
-    align-items: center; /* Align items vertically in the right content */
+    align-items: center; 
 }
 
 .right-content button {
@@ -65,10 +65,57 @@ header {
 }
 
 footer {
-    position: absolute; /* Set position to absolute */
-    bottom: 0; /* Align the footer to the bottom */
-    width: 100%; /* Full width */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     background-color: rgb(208, 208, 208);
     padding: 10px;
     text-align: center;
+}
+
+.new-bar {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    border: 1px solid black;
+}
+
+.result-container {
+    text-align: center;
+    width: 60%; 
+    border: 1px solid black; 
+    border-radius: 15px;
+}
+
+.result-container input {
+    padding: 12px;
+    border: none;
+    border-radius: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grey-container {
+    background-color: #bababa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    height: 100px;
+    margin: 10px 10% 10px 10px;
+    border: 1px solid black; 
+    border-radius: 15px;
+    width: 50%;
+}
+
+.grey-container p {
+    margin: 0;
 }
