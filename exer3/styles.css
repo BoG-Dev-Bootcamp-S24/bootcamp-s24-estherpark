@@ -1,0 +1,59 @@
+/* styles.css */
+body {
+    font-family: 'Arial';
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.new-bar {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust the height as needed */
+    border: 1px solid black; /* Add black border */
+}
+
+.result-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%; /* Adjust the width as needed */
+    max-width: 400px; /* Add a maximum width if desired */
+    border: 1px solid black; /* Add black border */
+    margin: 10px auto; /* Center the container vertically and horizontally */
+}
+
+.result-container input {
+    padding: 12px;
+    border: none; /* Remove border for the input */
+    border-radius: 15px;
+    width: 100%; /* Make the input take up full width */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+    margin: 10px auto; /* Center the input vertically and horizontally within the container */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grey-container {
+    background-color: #dcdcdc; /* Grey background color */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Align items vertically and horizontally in the container */
+    height: 100px; /* Adjust the height as needed */
+    margin: 10px 10% 10px 10px; /* Add margin to the left, adjust as needed */
+    border: 1px solid black; 
+    border-radius: 15px;
+    width: 50%;
+}
+
+.grey-container p {
+    margin: 0; /* Remove default margin for <p> element */
+}
