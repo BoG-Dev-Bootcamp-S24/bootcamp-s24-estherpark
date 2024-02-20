@@ -47,12 +47,15 @@ const App = () => {
         </div>
         <div className="right-section">
           <StatsPanel
-            activeTab={activeTab}
+            displayInfo={displayInfo}
             stats={pokemonData?.stats}
             height={pokemonData?.height}
             weight={pokemonData?.weight}
-            pokemonId = {pokemonData?.pokemonId}
+            moves={pokemonData?.moves}
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
           />
+          
           <InfoMoveButton
             displayInfo={displayInfo}
             onInfoMoveButtonClick={handleInfoMoveButtonClick}

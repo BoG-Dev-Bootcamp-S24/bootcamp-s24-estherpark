@@ -1,55 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './StatsPanel.css';
 
-const StatsPanel = ({ displayInfo, stats, height, weight, pokemonId }) => {
-  const [movesData, setMovesData] = useState([]);
-
-  useEffect(() => {
-    const fetchMovesData = async () => {
-      try {
-        const movesArray = stats.map((stat) => stat.move.url);
-        const movesDataPromises = movesArray.map(async (url) => {
-          const response = await fetch(url);
-          const data = await response.json();
-          return data;
-        });
-        const movesData = await Promise.all(movesDataPromises);
-        setMovesData(movesData);
-      } catch (error) {
-        console.error('Error fetching moves data:', error);
-      }
-    };
-
-    if (!displayInfo) {
-      fetchMovesData();
-    }
-  }, [displayInfo, stats, pokemonId]);
-
+const StatsPanel = ({ displayInfo, stats, height, weight, moves, activeTab, setActiveTab }) => {
   return (
     <div>
-      <p className={displayInfo ? 'active' : ''}>Info</p>
-      <p className={!displayInfo ? 'active' : ''}>Moves</p>
-        <div  className="stat-container">
-        {displayInfo ? (
-        <div>
-        <p>Height: {height / 10} m</p>
-        <p>Weight: {weight / 10} kg</p>
-        {stats.map((stat, index) => (
-            <p key={index}>
-            {stat.stat.name.charAt(0).toUpperCase() + stat.stat.name.slice(1)}: {stat.base_stat}
-            </p>
-        ))}
-        </div>
-    ) : (
-        <div>
-        <ul>
-            {movesData.map((move, index) => (
-            <li key={index}>{move.name}</li>
+      <p className={activeTab === 'info' ? 'active' : ''} onClick={() => setActiveTab('info')}>Info</p>
+      <p className={activeTab === 'moves' ? 'active' : ''} onClick={() => setActiveTab('moves')}>Moves</p>
+      <div className="stat-container">
+        {activeTab === 'info' && displayInfo && (
+          <div>
+            <p>Height: {height / 10} m</p>
+            <p>Weight: {weight / 10} kg</p>
+            {stats && stats.map && stats.map((stat, index) => (
+              <p key={index}>
+                {stat.stat.name.charAt(0).toUpperCase() + stat.stat.name.slice(1)}: {stat.base_stat}
+              </p>
             ))}
-        </ul>
-        </div>
+          </div>
         )}
-        </div>
+        {activeTab === 'moves' && !displayInfo && (
+          <div>
+            <ul>
+              {moves && moves.map && moves.map((move, index) => (
+                <li key={index}>{move.move.name}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
