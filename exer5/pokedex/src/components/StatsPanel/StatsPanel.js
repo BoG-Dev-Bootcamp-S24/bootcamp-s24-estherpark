@@ -29,20 +29,25 @@ const StatsPanel = ({ displayInfo, stats, height, weight, pokemonId }) => {
     <div>
       <p className={displayInfo ? 'active' : ''}>Info</p>
       <p className={!displayInfo ? 'active' : ''}>Moves</p>
-        <div className="stat-container">
-            {displayInfo ? (
-            <div>
-            <p>Height: {height / 10} m</p>
-            <p>Weight: {weight / 10} kg</p>
-            </div>
-        ) : (
-            <div>
-            <ul>
-                {movesData.map((move, index) => (
-                <li key={index}>{move.name}</li>
-                ))}
-            </ul>
-            </div>
+        <div  className="stat-container">
+        {displayInfo ? (
+        <div>
+        <p>Height: {height / 10} m</p>
+        <p>Weight: {weight / 10} kg</p>
+        {stats.map((stat, index) => (
+            <p key={index}>
+            {stat.stat.name.charAt(0).toUpperCase() + stat.stat.name.slice(1)}: {stat.base_stat}
+            </p>
+        ))}
+        </div>
+    ) : (
+        <div>
+        <ul>
+            {movesData.map((move, index) => (
+            <li key={index}>{move.name}</li>
+            ))}
+        </ul>
+        </div>
         )}
         </div>
     </div>

@@ -7,15 +7,15 @@ import ResetButton from './reset/ResetButton';
 
 function Counter() {
 
-    const count = 0;
+    const {count, setCount} = useState(0);    
   
     const increment = () => {
-
+      setCount(count+1);
     };
   
-    const decrement = () => {
-
-      }
+    const reset = () => {
+      setCount(0);
+    };
   
     return (
       <div className="counter">

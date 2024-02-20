@@ -5,13 +5,13 @@ const InfoMoveButton = ({ displayInfo, onInfoMoveButtonClick }) => (
   <div className = "active-container">
     <button className = "active-button"
       onClick={() => onInfoMoveButtonClick(true)}
-      style={{ backgroundColor: displayInfo ? 'green' : 'white' }}
+      style={{ backgroundColor: displayInfo ? 'lightgreen' : 'white' }}
     >
       Info
     </button>
     <button className = "active-button"
       onClick={() => onInfoMoveButtonClick(false)}
-      style={{ backgroundColor: !displayInfo ? 'green' : 'white' }}
+      style={{ backgroundColor: !displayInfo ? 'lightgreen' : 'white' }}
     >
       Moves
     </button>

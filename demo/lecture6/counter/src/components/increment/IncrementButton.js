@@ -1,9 +1,9 @@
 import React from 'react';
 import './IncrementButton.css';
 
-function IncrementButton({ setCount }) {
+function IncrementButton({ obj }) {
   return (
-    <button className="increment-button" onClick={() => {setCount((prevCount) => prevCount + 1)}}> {/* equivalent to setCount(currentCountValue + 1) */}
+    <button className="increment-button" onClick={() => {obj.setCount((obj.count + 1) => prevCount + 1)}}> {/* equivalent to setCount(currentCountValue + 1) */}
       Increment
     </button>
   );
