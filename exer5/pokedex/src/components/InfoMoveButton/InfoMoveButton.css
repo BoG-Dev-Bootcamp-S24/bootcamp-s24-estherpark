@@ -1,0 +1,19 @@
+.active-container {
+    width: 270px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.active-button {
+    margin-top: 20px;
+    width: 100px;
+    height: 40px;
+    font-size: 12px;
+    cursor: pointer;
+    background-color: lightgray;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
