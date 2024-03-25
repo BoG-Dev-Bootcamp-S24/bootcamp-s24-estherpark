@@ -1,0 +1,21 @@
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+  }
+  
+.stat-container {
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    height: 300px;
+    width: 250px;
+    overflow: auto;
+}
+  
+  
+.active {
+    font-weight: bold;
+    justify-content: center;
+}
